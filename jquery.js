@@ -5225,12 +5225,13 @@ jQuery.fn.extend({
 	before: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.parentNode ) {
+				var target = this;
 				if (typeof Windows != "undefined") {
 					MSApp.execUnsafeLocalFunction(function() {
-						this.parentNode.insertBefore( elem, this );
+						target.parentNode.insertBefore( elem, this );
 					});
 				} else {
-					this.parentNode.insertBefore( elem, this );
+					target.parentNode.insertBefore( elem, this );
 				}
 			}
 		});
@@ -5239,12 +5240,13 @@ jQuery.fn.extend({
 	after: function() {
 		return this.domManip( arguments, function( elem ) {
 			if ( this.parentNode ) {
+				var target = this;
 				if (typeof Windows != "undefined") {
 					MSApp.execUnsafeLocalFunction(function() {
-						this.parentNode.insertBefore( elem, this.nextSibling );
+						target.parentNode.insertBefore( elem, this.nextSibling );
 					});
 				} else {
-					this.parentNode.insertBefore( elem, this.nextSibling );
+					target.parentNode.insertBefore( elem, this.nextSibling );
 				}
 			}
 		});
